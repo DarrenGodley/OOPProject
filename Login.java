@@ -19,7 +19,7 @@ public class Login { //Start class
     public void setPassword(String password) {
         this.password = password;
     }
-    
+
     }
 
 } //End class
