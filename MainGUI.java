@@ -8,7 +8,7 @@ public class MainGUI extends JFrame {
         MainGUI gui = new MainGUI();
         gui.setVisible(true);
 
-    }
+    }//delete
 
 
     public MainGUI(){

@@ -15,7 +15,7 @@ import java.util.ArrayList;
         double balance;
 
         public Admin() {
-            
+
             Container cPane;
 
             setTitle     ("ATM Machine");
