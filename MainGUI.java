@@ -7,9 +7,7 @@ public class MainGUI extends JFrame {
     public static void main(String[] args) {
         MainGUI gui = new MainGUI();
         gui.setVisible(true);
-
-    }//delete
-
+    }
 
     public MainGUI(){
         setTitle     ("Main GUI");
@@ -18,12 +16,8 @@ public class MainGUI extends JFrame {
         setLocation  (500,100);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
 
-
-
         JButton adminButton = new JButton("Admin");
         JButton customerButton = new JButton("Customer");
-
-
 
         Container cpane = getContentPane();
 
@@ -33,11 +27,17 @@ public class MainGUI extends JFrame {
         cpane.add(customerButton);
 
         adminButton.addActionListener(new ActionListener() {
-
-
             @Override
             public void actionPerformed(ActionEvent e) {
                 Admin atmMachine = new Admin();
+                atmMachine.setVisible(true);
+            }
+        });
+
+        customerButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                CustomerGUI atmMachine = new CustomerGUI();
                 atmMachine.setVisible(true);
             }
         });
