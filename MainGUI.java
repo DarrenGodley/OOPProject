@@ -3,16 +3,16 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class MainGUI extends JFrame {
+public class MainGUI extends JFrame { // Start class
     public static void main(String[] args) {
         MainGUI gui = new MainGUI();
         gui.setVisible(true);
     }
 
     public MainGUI(){
-        setTitle     ("Main GUI");
+        setTitle     ("Welcome");
         setSize      (600,550);
-        setResizable (true);
+        setResizable (false);
         setLocation  (500,100);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
 
@@ -43,4 +43,4 @@ public class MainGUI extends JFrame {
         });
 
     }
-}
+} // End class

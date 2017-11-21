@@ -2,69 +2,27 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.*;
+import java.util.ArrayList;
 
-    public class Admin extends JFrame implements ActionListener {
-        private String admin;
-        private double pinNumber;
-        private String custName;
-        private int custID;
-        private double balance;
-
-        public String getCustName() {
-            return custName;
-        }
-
-        public int getCustID() {
-            return custID;
-        }
-
-        public double getBalance() {
-            return balance;
-        }
-
-        public void setCustName(String custName) {
-            this.custName = custName;
-        }
-
-        public void setCustID(int custID) {
-            this.custID = custID;
-        }
-
-        public void setBalance(double balance) {
-            this.balance = balance;
-        }
-
-
+public class Admin extends JFrame implements ActionListener { // Start class
+        String admin;
+        double pinNumber;
 
         public Admin() {
 
             Container cPane;
 
-            setTitle     ("ATM Machine");
-            setSize      (500,550);
-            setResizable (false);
-            setLocation  (500,100);
+            setTitle("Admin");
+            setSize(500, 550);
+            setResizable(false);
+            setLocation(500, 100);
 
             setDefaultCloseOperation(EXIT_ON_CLOSE);
 
-            admin = JOptionPane.showInputDialog("Please enter your username");
-            pinNumber = Double.parseDouble(JOptionPane.showInputDialog("Please enter your pin number"));
+            //New customer button
+            cPane = getContentPane();
 
-            if (admin == "darren"){
-                if (pinNumber == 12345){
-                    JOptionPane.showMessageDialog(null,"Welcome", "Welcome admin", JOptionPane.INFORMATION_MESSAGE);
-                }
-            }
-            else{
-                JOptionPane.showMessageDialog(null,"Wrong username or password, goodbye", "Wrong admin", JOptionPane.ERROR_MESSAGE);
-                System.exit(0);
-            }
-
-            String custName;
-            int custID;
-            double balance;
-
-            cPane = getContentPane( );
             cPane.setLayout(new FlowLayout());
 
             JButton newCustomer = new JButton("Create new customer");
@@ -77,15 +35,43 @@ import java.awt.event.ActionListener;
 
             newCustomer.addActionListener(new ActionListener() {
 
+              @Override
+               public void actionPerformed(ActionEvent e) {
+                  Account[] acc = new Account[6];
+                  int count = 0;
+                  do {
+                      acc[count] = new Account();
+                      acc[count].setName(JOptionPane.showInputDialog("Account name: "));
+                      acc[count].setPassword(JOptionPane.showInputDialog("Password: "));
+                      acc[count].setBalance(Double.parseDouble(JOptionPane.showInputDialog("starting balance: ")));
+                      count++;
+                  }
+                  while (JOptionPane.showConfirmDialog(null, "More accounts? ") == JOptionPane.YES_OPTION
+                          && count < acc.length);
+              }
+            }
+
+            );
+
+            //Back Button
+            cpane = getContentPane();
+
+            cpane.setLayout(new FlowLayout());
+
+            JButton back = new JButton("Back");
+
+            cpane.add(back);
+
+            back.addActionListener(new ActionListener() {
+
                 @Override
                 public void actionPerformed(ActionEvent e) {
-
+                    MainGUI atmMachine = new MainGUI();
+                    atmMachine.setVisible(true);
                 }
             });
         }
 
-        @Override
         public void actionPerformed(ActionEvent e) {
-
         }
-    }
+    } //End class

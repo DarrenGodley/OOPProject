@@ -3,19 +3,20 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class CustomerGUI extends JFrame implements ActionListener {
+public class CustomerGUI extends JFrame implements ActionListener { // Start class
 
     public CustomerGUI() {
 
         Container cPane;
 
-        setTitle("ATM Machine");
+        setTitle("Select an Option");
         setSize(1000, 550);
         setResizable(false);
         setLocation(400, 100);
 
         setDefaultCloseOperation(EXIT_ON_CLOSE);
 
+        //balance button
         cPane = getContentPane();
         cPane.setLayout(new FlowLayout());
 
@@ -29,14 +30,13 @@ public class CustomerGUI extends JFrame implements ActionListener {
 
         showBalance.addActionListener(new ActionListener() {
 
-
             @Override
             public void actionPerformed(ActionEvent e) {
-                MainGUI atmMachine = new MainGUI();
-                atmMachine.setVisible(true);
+                System.out.println(balance);
             }
         });
 
+        //withdraw button
         JButton withdraw = new JButton("Withdraw");
 
         cpane = getContentPane();
@@ -54,6 +54,7 @@ public class CustomerGUI extends JFrame implements ActionListener {
             }
         });
 
+        //deposit button
         JButton deposit = new JButton("Deposit");
 
         cpane = getContentPane();
@@ -67,11 +68,11 @@ public class CustomerGUI extends JFrame implements ActionListener {
 
             @Override
             public void actionPerformed(ActionEvent e) {
-                MainGUI atmMachine = new MainGUI();
-                atmMachine.setVisible(true);
+
             }
         });
 
+        //statements button
         JButton statements = new JButton("Statements");
 
         cpane = getContentPane();
@@ -85,11 +86,11 @@ public class CustomerGUI extends JFrame implements ActionListener {
 
             @Override
             public void actionPerformed(ActionEvent e) {
-                MainGUI atmMachine = new MainGUI();
-                atmMachine.setVisible(true);
+
             }
         });
 
+        //logout button
         JButton logout = new JButton("Logout");
 
         cpane = getContentPane();
@@ -103,19 +104,12 @@ public class CustomerGUI extends JFrame implements ActionListener {
 
             @Override
             public void actionPerformed(ActionEvent e) {
-                MainGUI atmMachine = new MainGUI();
-                atmMachine.setVisible(true);
+
             }
         });
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
-
     }
-    //public double withdraw(double amount){
-    //    if(amount <= balance)
-    //        balance -= amount;
-    //    return balance;
-    //}
-}
+} // End class
