@@ -1,8 +1,9 @@
 public class Account { //start class
-    String name;
-    String password;
-    double balance;
+    private String name;
+    private String password;
+    private double balance;
 
+    //Accessor methods
     public String getName() {
         return name;
     }
@@ -15,6 +16,7 @@ public class Account { //start class
         return balance;
     }
 
+    //Mutator methods
     public void setName(String name) {
         this.name = name;
     }
@@ -27,13 +29,38 @@ public class Account { //start class
         this.balance = balance;
     }
 
+    //No agrument constructor
+    public Account()
+    {
+        this("Known","Known",0);
+    }
+
+    //Multi argument constructor
+    public Account(String username,String password,double balance)
+    {
+        this.name = name;
+        this.password = password;
+        this.balance = balance;
+    }
+
+    //Add money to the account
     public void deposit(double amount){
         balance += amount;
     }
 
+    //Take money from the account
     public void withdraw(double amount){
         if (amount <=balance){
             balance -= amount;
         }
+    }
+
+    //toString Mtehod
+    public String toString()
+    {
+
+        return  "Username: " + getName() +
+                "\nPassword " + getPassword() + "\nBalance: €" +
+                String.format("%.2f",getBalance());
     }
 } //end class

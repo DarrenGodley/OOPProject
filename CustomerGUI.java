@@ -32,7 +32,7 @@ public class CustomerGUI extends JFrame implements ActionListener { // Start cla
 
             @Override
             public void actionPerformed(ActionEvent e) {
-                System.out.println(balance);
+                System.out.println();
             }
         });
 

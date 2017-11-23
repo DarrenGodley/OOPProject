@@ -3,7 +3,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class MainGUI extends JFrame { // Start class
+public class MainGUI extends JFrame implements ActionListener { // Start class
     public static void main(String[] args) {
         MainGUI gui = new MainGUI();
         gui.setVisible(true);
@@ -16,20 +16,17 @@ public class MainGUI extends JFrame { // Start class
         setLocation  (500,100);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
 
-        JButton adminButton = new JButton("Admin");
+        JButton managerButton = new JButton("Manager");
         JButton customerButton = new JButton("Customer");
-
         Container cpane = getContentPane();
-
         cpane.setLayout(new FlowLayout());
-
-        cpane.add(adminButton);
+        cpane.add(managerButton);
         cpane.add(customerButton);
 
-        adminButton.addActionListener(new ActionListener() {
+        managerButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                Admin atmMachine = new Admin();
+                Manager atmMachine = new Manager();
                 atmMachine.setVisible(true);
             }
         });
@@ -42,5 +39,9 @@ public class MainGUI extends JFrame { // Start class
             }
         });
 
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
     }
 } // End class
