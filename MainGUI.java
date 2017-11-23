@@ -2,45 +2,47 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 public class MainGUI extends JFrame implements ActionListener { // Start class
+
+    JLabel welcomeLabel, usernameLabel, passwordLabel;
+    JTextField usernameField;
+    JPasswordField passwordField;
+    ArrayList <Person> customers;
+
     public static void main(String[] args) {
         MainGUI gui = new MainGUI();
         gui.setVisible(true);
     }
 
     public MainGUI(){
-        setTitle     ("Welcome");
-        setSize      (600,550);
+        setTitle ("ATM Machine");
+        setSize (600,550);
+        setLocation (500,100);
         setResizable (false);
-        setLocation  (500,100);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
 
-        JButton managerButton = new JButton("Manager");
-        JButton customerButton = new JButton("Customer");
         Container cpane = getContentPane();
-        cpane.setLayout(new FlowLayout());
-        cpane.add(managerButton);
-        cpane.add(customerButton);
+        cpane.setLayout(null);
 
-        managerButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                Manager atmMachine = new Manager();
-                atmMachine.setVisible(true);
-            }
-        });
+        welcomeLabel = new JLabel("Welcome customer");
+		welcomeLabel.setBounds(250,5,300,50);
+		cpane.add(welcomeLabel);
 
-        customerButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                CustomerGUI atmMachine = new CustomerGUI();
-                atmMachine.setVisible(true);
-            }
-        });
+        usernameLabel = new JLabel("Username:");
+        usernameLabel.setBounds(200,102,300,50);
+		cpane.add(usernameLabel);
+
+		usernameField = new JTextField(10);
+		usernameField.setBounds(270,118,100,20);
+		cpane.add(usernameField);
+
+		passwordLabel = new JLabel("Password:");
+		passwordLabel.setBounds(200,150,300,50);
+		cpane.add(passwordLabel);
 
     }
-
     @Override
     public void actionPerformed(ActionEvent e) {
     }

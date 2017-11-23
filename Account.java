@@ -15,6 +15,7 @@ public class Account { //start class
     public double getBalance() {
         return balance;
     }
+    //End accessor
 
     //Mutator methods
     public void setName(String name) {
@@ -28,8 +29,9 @@ public class Account { //start class
     public void setBalance(double balance) {
         this.balance = balance;
     }
+    //End mutator
 
-    //No agrument constructor
+    //No argument constructor
     public Account()
     {
         this("Known","Known",0);
@@ -58,7 +60,6 @@ public class Account { //start class
     //toString Mtehod
     public String toString()
     {
-
         return  "Username: " + getName() +
                 "\nPassword " + getPassword() + "\nBalance: €" +
                 String.format("%.2f",getBalance());
