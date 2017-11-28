@@ -11,7 +11,7 @@ public class CustomerGUI extends JFrame implements ActionListener { // Start cla
         Container cPane;
 
         setTitle("Select an Option");
-        setSize(500, 501);
+        setSize(500, 501); 
         setResizable(false);
         setLocation(400, 100);
 
