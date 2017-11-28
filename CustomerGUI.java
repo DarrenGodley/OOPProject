@@ -6,11 +6,12 @@ import java.awt.event.ActionListener;
 public class CustomerGUI extends JFrame implements ActionListener { // Start class
 
     public CustomerGUI() {
+        JButton showBalance, withdraw, deposit, statements, logout;
 
         Container cPane;
 
         setTitle("Select an Option");
-        setSize(1000, 550);
+        setSize(500, 501);
         setResizable(false);
         setLocation(400, 100);
 
@@ -19,17 +20,14 @@ public class CustomerGUI extends JFrame implements ActionListener { // Start cla
         //balance button
         cPane = getContentPane();
         cPane.setLayout(new FlowLayout());
-
-        JButton showBalance = new JButton("Show balance");
-
+        showBalance = new JButton("Show balance");
+        showBalance.setBounds(1,1,250,167);
         Container cpane = getContentPane();
-
         cpane.setLayout(new FlowLayout());
 
         cpane.add(showBalance);
-
-        showBalance.addActionListener(new ActionListener() {
-
+        showBalance.addActionListener(new ActionListener()
+        {
             @Override
             public void actionPerformed(ActionEvent e) {
                 System.out.println();
@@ -37,17 +35,12 @@ public class CustomerGUI extends JFrame implements ActionListener { // Start cla
         });
 
         //withdraw button
-        JButton withdraw = new JButton("Withdraw");
-
+        withdraw = new JButton("Withdraw");
         cpane = getContentPane();
-
         cpane.setLayout(new FlowLayout());
-
         cpane.add(withdraw);
-
-        withdraw.addActionListener(new ActionListener() {
-
-
+        withdraw.addActionListener(new ActionListener()
+        {
             @Override
             public void actionPerformed(ActionEvent e) {
 
@@ -55,17 +48,12 @@ public class CustomerGUI extends JFrame implements ActionListener { // Start cla
         });
 
         //deposit button
-        JButton deposit = new JButton("Deposit");
-
+        deposit = new JButton("Deposit");
         cpane = getContentPane();
-
         cpane.setLayout(new FlowLayout());
-
         cpane.add(deposit);
-
-        deposit.addActionListener(new ActionListener() {
-
-
+        deposit.addActionListener(new ActionListener()
+        {
             @Override
             public void actionPerformed(ActionEvent e) {
 
@@ -73,17 +61,12 @@ public class CustomerGUI extends JFrame implements ActionListener { // Start cla
         });
 
         //statements button
-        JButton statements = new JButton("Statements");
-
+        statements = new JButton("Statements");
         cpane = getContentPane();
-
         cpane.setLayout(new FlowLayout());
-
         cpane.add(statements);
-
-        statements.addActionListener(new ActionListener() {
-
-
+        statements.addActionListener(new ActionListener()
+        {
             @Override
             public void actionPerformed(ActionEvent e) {
 
@@ -91,17 +74,12 @@ public class CustomerGUI extends JFrame implements ActionListener { // Start cla
         });
 
         //logout button
-        JButton logout = new JButton("Logout");
-
+        logout = new JButton("Logout");
         cpane = getContentPane();
-
         cpane.setLayout(new FlowLayout());
-
         cpane.add(logout);
-
-        logout.addActionListener(new ActionListener() {
-
-
+        logout.addActionListener(new ActionListener()
+        {
             @Override
             public void actionPerformed(ActionEvent e) {
 

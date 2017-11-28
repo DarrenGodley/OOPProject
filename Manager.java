@@ -18,11 +18,11 @@ public class Manager extends JFrame implements ActionListener { // Start class
 
     public Manager( ) {
         newSystem();
-        setTitle     ( "Account manager" );
-        setSize      ( 400,200 );
-        setLocation  ( 800,200 );
+        setTitle ( "Account manager" );
+        setSize ( 400,200 );
+        setLocation ( 800,200 );
         Container pane = getContentPane();
-        setDefaultCloseOperation( EXIT_ON_CLOSE );
+        setDefaultCloseOperation (EXIT_ON_CLOSE);
 
         createFileMenu();
         createCustomerMenu();
@@ -38,7 +38,7 @@ public class Manager extends JFrame implements ActionListener { // Start class
 
     public void save() throws IOException {
         ObjectOutputStream os;
-        os = new ObjectOutputStream(new FileOutputStream("user.dat"));
+        os = new ObjectOutputStream(new FileOutputStream("customers.dat"));
         os.writeObject(customers);
         os.close();
     }
@@ -46,7 +46,7 @@ public class Manager extends JFrame implements ActionListener { // Start class
     public void open() {
         try {
             ObjectInputStream is;
-            is = new ObjectInputStream(new FileInputStream("user.dat"));
+            is = new ObjectInputStream(new FileInputStream("customers.dat"));
             customers = (ArrayList<Person>) is.readObject();
             is.close();
         }
@@ -67,7 +67,7 @@ public class Manager extends JFrame implements ActionListener { // Start class
         Person p = new Person(name,age,g,accname,password,amount);
         customers.add(p);
 
-        JOptionPane.showMessageDialog(null,name + "'s account has been successfully created");
+        JOptionPane.showMessageDialog(null,name + "'s account has been created");
     }
 
     public void display() {
