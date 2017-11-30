@@ -45,19 +45,7 @@ public class Account { //start class
         this.balance = balance;
     }
 
-    //Add money to the account
-    public void deposit(double amount){
-        balance += amount;
-    }
-
-    //Take money from the account
-    public void withdraw(double amount){
-        if (amount <=balance){
-            balance -= amount;
-        }
-    }
-
-    //toString Mtehod
+    //toString method
     public String toString()
     {
         return  "Username: " + getName() +

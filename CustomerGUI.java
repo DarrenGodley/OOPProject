@@ -11,62 +11,63 @@ public class CustomerGUI extends JFrame implements ActionListener { // Start cla
         Container cPane;
 
         setTitle("Select an Option");
-        setSize(500, 501); 
+        setSize(500, 500);
         setResizable(false);
         setLocation(400, 100);
 
         setDefaultCloseOperation(EXIT_ON_CLOSE);
 
         //balance button
+        showBalance = new JButton("Show balance");
         cPane = getContentPane();
         cPane.setLayout(new FlowLayout());
-        showBalance = new JButton("Show balance");
-        showBalance.setBounds(1,1,250,167);
-        Container cpane = getContentPane();
-        cpane.setLayout(new FlowLayout());
 
-        cpane.add(showBalance);
+        cPane.add(showBalance);
         showBalance.addActionListener(new ActionListener()
         {
             @Override
             public void actionPerformed(ActionEvent e) {
-                System.out.println();
+                JOptionPane.showMessageDialog(null, "Your balance is: " + MainGUI.currentCustomer.getAccount().getBalance());
             }
         });
 
         //withdraw button
         withdraw = new JButton("Withdraw");
-        cpane = getContentPane();
-        cpane.setLayout(new FlowLayout());
-        cpane.add(withdraw);
-        withdraw.addActionListener(new ActionListener()
-        {
+        cPane = getContentPane();
+        cPane.setLayout(new FlowLayout());
+        cPane.add(withdraw);
+        withdraw.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
 
+                double amount = Double.parseDouble(JOptionPane.showInputDialog("Please enter the amount you want to withdraw: "));
+                MainGUI.currentCustomer.getAccount().setBalance(MainGUI.currentCustomer.getAccount().getBalance()-amount);
+
+                JOptionPane.showMessageDialog(null,MainGUI.currentCustomer.toString());
             }
         });
 
         //deposit button
         deposit = new JButton("Deposit");
-        cpane = getContentPane();
-        cpane.setLayout(new FlowLayout());
-        cpane.add(deposit);
-        deposit.addActionListener(new ActionListener()
-        {
+        cPane = getContentPane();
+        cPane.setLayout(new FlowLayout());
+        cPane.add(deposit);
+        deposit.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                double amount = Double.parseDouble(JOptionPane.showInputDialog("Please enter the amount you want to deposit: "));
+                MainGUI.currentCustomer.getAccount().setBalance(MainGUI.currentCustomer.getAccount().getBalance() + amount);
 
+                JOptionPane.showMessageDialog(null,MainGUI.currentCustomer.toString());
             }
         });
 
         //statements button
         statements = new JButton("Statements");
-        cpane = getContentPane();
-        cpane.setLayout(new FlowLayout());
-        cpane.add(statements);
-        statements.addActionListener(new ActionListener()
-        {
+        cPane = getContentPane();
+        cPane.setLayout(new FlowLayout());
+        cPane.add(statements);
+        statements.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
 
@@ -75,14 +76,14 @@ public class CustomerGUI extends JFrame implements ActionListener { // Start cla
 
         //logout button
         logout = new JButton("Logout");
-        cpane = getContentPane();
-        cpane.setLayout(new FlowLayout());
-        cpane.add(logout);
-        logout.addActionListener(new ActionListener()
-        {
+        cPane = getContentPane();
+        cPane.setLayout(new FlowLayout());
+        cPane.add(logout);
+        logout.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                JOptionPane.showMessageDialog(null, "Shutting down the system","Shutting down", JOptionPane.INFORMATION_MESSAGE);
+                System.exit(0);
             }
         });
     }

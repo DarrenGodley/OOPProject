@@ -9,7 +9,7 @@ import java.util.Iterator;
 public class Manager extends JFrame implements ActionListener { // Start class
 
     JMenu fileMenu,customerMenu;
-    ArrayList <Person> customers;
+    static ArrayList <Person> customers;
 
     public static void main( String[] args ) {
         Manager frame = new Manager();
@@ -21,7 +21,7 @@ public class Manager extends JFrame implements ActionListener { // Start class
         setTitle ( "Account manager" );
         setSize ( 400,200 );
         setLocation ( 800,200 );
-        Container pane = getContentPane();
+        Container cPane = getContentPane();
         setDefaultCloseOperation (EXIT_ON_CLOSE);
 
         createFileMenu();
@@ -30,6 +30,17 @@ public class Manager extends JFrame implements ActionListener { // Start class
         setJMenuBar(menuBar);
         menuBar.add(fileMenu);
         menuBar.add(customerMenu);
+
+        cPane.setLayout(new FlowLayout());
+        JButton jbCustomer = new JButton("Login");
+        jbCustomer.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                MainGUI mg = new MainGUI();
+                mg.setVisible(true);
+            }
+        });
+        cPane.add(jbCustomer);
     }
 
     public void newSystem() {
@@ -59,15 +70,16 @@ public class Manager extends JFrame implements ActionListener { // Start class
     public void addCustomer(){
         String name = JOptionPane.showInputDialog("Enter customer name: ");
         int age = Integer.parseInt(JOptionPane.showInputDialog("Enter customer age: "));
-        String gender = JOptionPane.showInputDialog("Enter customer Gender: ");
-        char g = gender.charAt(0);
         String accname = JOptionPane.showInputDialog("Enter account name: ");
         String password = JOptionPane.showInputDialog("Enter account password: ");
-        double amount = Double.parseDouble(JOptionPane.showInputDialog("Balance: "));
-        Person p = new Person(name,age,g,accname,password,amount);
+        double balance = Double.parseDouble(JOptionPane.showInputDialog("Balance: "));
+        Person p = new Person(name,age,accname,password,balance);
         customers.add(p);
 
         JOptionPane.showMessageDialog(null,name + "'s account has been created");
+
+        MainGUI.currentCustomer = p;
+
     }
 
     public void display() {
