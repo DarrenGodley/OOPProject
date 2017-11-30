@@ -6,28 +6,28 @@ import java.awt.event.ActionListener;
 public class CustomerGUI extends JFrame implements ActionListener { // Start class
 
     public CustomerGUI() {
+        //Creating JButton names
         JButton showBalance, withdraw, deposit, statements, logout;
 
         Container cPane;
-
+        //Creating content pane
         setTitle("Select an Option");
         setSize(500, 500);
         setResizable(false);
         setLocation(400, 100);
-
+        getContentPane().setBackground(Color.PINK);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
 
-        //balance button
+        //Show balance button
         showBalance = new JButton("Show balance");
         cPane = getContentPane();
         cPane.setLayout(new FlowLayout());
-
         cPane.add(showBalance);
         showBalance.addActionListener(new ActionListener()
         {
             @Override
             public void actionPerformed(ActionEvent e) {
-                JOptionPane.showMessageDialog(null, "Your balance is: " + MainGUI.currentCustomer.getAccount().getBalance());
+                JOptionPane.showMessageDialog(null, String.format("Your balance is: %s", MainGUI.currentCustomer.getAccount().getBalance()));
             }
         });
 

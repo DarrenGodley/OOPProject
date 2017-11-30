@@ -15,7 +15,6 @@ public class Account { //start class
     public double getBalance() {
         return balance;
     }
-    //End accessor
 
     //Mutator methods
     public void setName(String name) {
@@ -38,7 +37,7 @@ public class Account { //start class
     }
 
     //Multi argument constructor
-    public Account(String username,String password,double balance)
+    public Account(String name,String password,double balance)
     {
         this.name = name;
         this.password = password;

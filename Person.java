@@ -3,7 +3,7 @@ public class Person {
     private int age;
     private Account account;
 
-    //Accessor method
+    //Accessor methods
     public Account getAccount()
     {
         return account;
@@ -19,7 +19,7 @@ public class Person {
         return name;
     }
 
-    //Mutator method
+    //Mutator methods
     public void setAge (int age) {
         this.age = age;
     }

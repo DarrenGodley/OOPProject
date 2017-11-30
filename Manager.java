@@ -9,6 +9,9 @@ import java.util.Iterator;
 public class Manager extends JFrame implements ActionListener { // Start class
 
     JMenu fileMenu,customerMenu;
+    JMenuBar menuBar;
+
+    //Creating Arraylist
     static ArrayList <Person> customers;
 
     public static void main( String[] args ) {
@@ -16,23 +19,27 @@ public class Manager extends JFrame implements ActionListener { // Start class
         frame.setVisible(true);
     }
 
-    public Manager( ) {
+    //
+    public Manager() {
+        //Creating content pane
         newSystem();
         setTitle ( "Account manager" );
         setSize ( 400,200 );
         setLocation ( 800,200 );
         Container cPane = getContentPane();
+        getContentPane().setBackground(Color.PINK);
         setDefaultCloseOperation (EXIT_ON_CLOSE);
 
         createFileMenu();
         createCustomerMenu();
-        JMenuBar menuBar = new JMenuBar();
+        menuBar = new JMenuBar();
+        menuBar.setBackground(Color.PINK);
         setJMenuBar(menuBar);
         menuBar.add(fileMenu);
         menuBar.add(customerMenu);
 
         cPane.setLayout(new FlowLayout());
-        JButton jbCustomer = new JButton("Login");
+        JButton jbCustomer = new JButton("Continue");
         jbCustomer.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -46,14 +53,14 @@ public class Manager extends JFrame implements ActionListener { // Start class
     public void newSystem() {
         customers = new ArrayList <Person>();
     }
-
+    //Create save menu
     public void save() throws IOException {
         ObjectOutputStream os;
         os = new ObjectOutputStream(new FileOutputStream("customers.dat"));
         os.writeObject(customers);
         os.close();
     }
-
+    //Create open menu
     public void open() {
         try {
             ObjectInputStream is;
@@ -66,7 +73,7 @@ public class Manager extends JFrame implements ActionListener { // Start class
             e.printStackTrace();
         }
     }
-
+    //Create addCustomer method
     public void addCustomer(){
         String name = JOptionPane.showInputDialog("Enter customer name: ");
         int age = Integer.parseInt(JOptionPane.showInputDialog("Enter customer age: "));
@@ -81,7 +88,7 @@ public class Manager extends JFrame implements ActionListener { // Start class
         MainGUI.currentCustomer = p;
 
     }
-
+    //Create display menu
     public void display() {
         JTextArea area = new JTextArea();
         int numCustomers = customers.size();
@@ -94,8 +101,8 @@ public class Manager extends JFrame implements ActionListener { // Start class
         else
             showMessage("No customers in the system");
     }
-
-    public void display2(){
+    //Create display2 menu
+    public void display2() {
         int numCustomers = customers.size();
         if(numCustomers < 1)
             showMessage("No customers in the system");
@@ -126,7 +133,7 @@ public class Manager extends JFrame implements ActionListener { // Start class
             try {
                 save();
                 showMessage("Data saved successfully");
-            } // try
+            }
             catch (IOException f) {
                 showMessage("Not able to save the file:\n" +
                         "Check the console printout for clues to why ");
@@ -140,26 +147,26 @@ public class Manager extends JFrame implements ActionListener { // Start class
         else
             showMessage("Nothing happened");
     }
-
+    //Create createFileMenu method
     public void createFileMenu(){
-    fileMenu = new JMenu("File");
+        fileMenu = new JMenu("File");
 
-    JMenuItem item;
-    item = new JMenuItem("Save");
-    item.addActionListener(this);
-    fileMenu.add(item);
-    item = new JMenuItem("Open");
-    item.addActionListener(this);
-    fileMenu.add(item);
-    item = new JMenuItem("New File");
-    item.addActionListener(this);
-    fileMenu.add(item);
-    fileMenu.addSeparator();
-    item = new JMenuItem("Log Out");
-    item.addActionListener(this);
-    fileMenu.add(item);
+        JMenuItem item;
+        item = new JMenuItem("Save");
+        item.addActionListener(this);
+        fileMenu.add(item);
+        item = new JMenuItem("Open");
+        item.addActionListener(this);
+        fileMenu.add(item);
+        item = new JMenuItem("New File");
+        item.addActionListener(this);
+        fileMenu.add(item);
+        fileMenu.addSeparator();
+        item = new JMenuItem("Log Out");
+        item.addActionListener(this);
+        fileMenu.add(item);
     }
-
+    //Create createCustomerMenu method
     private void createCustomerMenu(){
         customerMenu = new JMenu("Accounts");
 
@@ -172,12 +179,13 @@ public class Manager extends JFrame implements ActionListener { // Start class
         item.addActionListener(this);
         customerMenu.add(item);
     }
-
+    //Create showMessage method
     public void showMessage (String s){
         JOptionPane.showMessageDialog(null,s);
     }
-
+    //Create showMessage method
     public void showMessage (JTextArea s){
         JOptionPane.showMessageDialog(null,s);
     }
-    } //End class
+} //End class
+ 

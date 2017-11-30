@@ -18,6 +18,8 @@ public class MainGUI extends JFrame implements ActionListener { // Start class
 
     Person customer;
 
+    Container cPane;
+
     public MainGUI(){
         setTitle ("ATM Machine");
         setSize (500,400);
@@ -25,8 +27,9 @@ public class MainGUI extends JFrame implements ActionListener { // Start class
         setResizable (false);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
 
-        Container cPane = getContentPane();
+        cPane = getContentPane();
         cPane.setLayout(null);
+        getContentPane().setBackground(Color.PINK);
 
         loginLabel = new JLabel("Welcome customer");
         loginLabel.setBounds(200,5,300,50);
@@ -40,12 +43,12 @@ public class MainGUI extends JFrame implements ActionListener { // Start class
         usernameLabel.setBounds(160,102,300,50);
         cPane.add(usernameLabel);
 
-		usernameField = new JTextField(10);
-		usernameField.setBounds(230,118,100,20);
+        usernameField = new JTextField(10);
+        usernameField.setBounds(230,118,100,20);
         cPane.add(usernameField);
 
-		passwordLabel = new JLabel("Password:");
-		passwordLabel.setBounds(160,150,300,50);
+        passwordLabel = new JLabel("Password:");
+        passwordLabel.setBounds(160,150,300,50);
         cPane.add(passwordLabel);
 
         passwordField = new JPasswordField(10);
